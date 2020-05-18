@@ -1,0 +1,27 @@
+.search-box{
+    background-color: gray;
+    text-align: center;
+    
+}
+
+#search-box {
+    background-color: #F0E68C;
+}
+
+button {
+    border-radius: 5px;
+    border-color: #AFEEEE;
+}
+
+.filters {
+    background-color: #C0C0C0;
+    text-align: center;
+}
+
+#print-type {
+    width: 60px
+}
+
+#book-type {
+    width: 60px
+}

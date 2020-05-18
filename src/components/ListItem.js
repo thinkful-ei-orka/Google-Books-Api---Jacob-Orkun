@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './ListItem.css';
 
 export default function ListItem(props) {
 
@@ -13,10 +14,10 @@ export default function ListItem(props) {
     return (
         <div className="list-item">
             <h2>{props.title}</h2>
-            <p>{props.author.toString()}</p>
-            <p>{price}</p>
+            <p className='info'>Author:  {props.author.toString()}</p>
+            <p className='info'>Price:  {price}</p>
             <img src={props.img} alt={props.author}/>
-            <p>{props.desc}</p>
+            <p className="desc">{props.desc}</p>
         </div>
     )
 }
@@ -26,5 +27,5 @@ ListItem.defaultProps = {
     author: '',
     price: '',
     img: '',
-    desc: ''
+    desc: 'This book has no description provided.'
 }

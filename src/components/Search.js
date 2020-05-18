@@ -1,4 +1,5 @@
 import React from 'react';
+import './Search.css';
 
 
 export default class List extends React.Component {
@@ -25,9 +26,12 @@ export default class List extends React.Component {
     render() {
     return(
         <form onSubmit={e=> this.fetchBooks(e)}>
+            <div className="search-box">
             <label htmlFor="search-box">Search:</label>
             <input name='search' type="text" id="search-box" placeholder="henry" required></input>
             <button type="submit">Search</button>
+            </div>
+            <div className="filters">
             <label htmlFor="print-type">Print Type:</label>
             <select name='print-type' id="print-type"> 
                 <option value="all">All</option>
@@ -42,6 +46,7 @@ export default class List extends React.Component {
                 <option value="paid-ebooks">paid-ebooks</option>
                 <option value="partial">partial</option>
             </select>
+            </div>
         </form>
     )
     }
