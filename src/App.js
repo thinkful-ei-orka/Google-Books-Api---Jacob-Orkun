@@ -5,22 +5,27 @@ import List from './components/List'
 
 
 class App extends React.Component {
-  constructor(props) {
-  super(props)
-  this.state = {
-    search : null,
-    printType : 'test',
-    bookType : null
+  
+  state = {
+    data: null
   }
-}
+
+  updateState = (newData) => {
+    this.setState({
+      data: newData
+    })
+  }
 
 
   render() {
   return (
     <main className='App'>
       <Header/>
-      <Search state={this.state}/>
-      <List/>
+      <Search 
+        state={this.state}
+        onSearch={this.updateState}
+      />
+      <List data={this.state.data}/>
     </main>
   )
   }

@@ -2,11 +2,23 @@ import React from 'react';
 
 
 export default class List extends React.Component {
+    BASE_URL = 'https://www.googleapis.com/books/v1/volumes';
+    //need the author, title, price, image, and desc.
+    //author: data.items[0].volumeInfo.authors.toString()
+    //title:  data.items[0].volumeInfo.title
+    //price:  data.items[0].saleInfo.listPrice.amount.toString()
+    //img:  data.items[0].volumeInfo.imageLinks.thumbnail
+    //desc:  data.items[0].volumeInfo.description
     fetchBooks = (event) => {
         event.preventDefault();
-        console.log(event.target.elements['search'].value)
-        console.log(event.target.elements['print-type'].value)
-        console.log(event.target.elements['book-type'].value)
+        console.log(this.BASE_URL)
+        let searchValue = event.target.elements['search'].value
+        let printType = event.target.elements['print-type'].value
+        let bookType = event.target.elements['book-type'].value
+        let url = `${this.BASE_URL}?q=${searchValue}&filter=${bookType}&printType=${printType}`
+        fetch(url)
+            .then(res => res.json())
+            .then(newData => this.props.onSearch(newData));
     }
 
 
